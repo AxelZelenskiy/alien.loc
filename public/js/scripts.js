@@ -21,11 +21,14 @@ jQuery(function($){
 
 
 	function move_blocks(){
+		//1. Блок зеленый почему то позже всех получает 4 з-индекс
+		// 2. Обратить внимание на время(+координаты) анимации среднего блока
+		// как то она странно происходит  
 		for (let i = 0; i<3; i++) {
-			console.log('iteration number =>  ' + i);
+			// console.log('iteration number =>  ' + i);
 			if (elements_positions[i] == 1) {
-				console.log('elements_positions is 0 - central block');
-				console.log('started animations');
+				// console.log('elements_positions is 0 - central block');
+				// console.log('started animations');
 				$(elements[i]).removeClass('secondary');
 				$(elements[i]).animate({
 										'opacity': .75,
@@ -35,7 +38,7 @@ jQuery(function($){
 										'left': 200
 				},1000,function(){
 					$(elements[i]).css({"z-index":5});
-					console.log('Main block First animation with opacity and fz is must complete now...');
+					// console.log('Main block First animation with opacity and fz is must complete now...');
 				}).animate({
 										top: elements_coordinates[elements_positions[i]],
 										width: supBlock,
@@ -43,13 +46,15 @@ jQuery(function($){
 										opacity:1,
 										left: 150
 										},1000,function(){
-											console.log('Secondary main block animation must complete now');
+											// console.log('Secondary main block animation must complete now');
 											// $(elements[i]).css({"-webkit-filter": "blur(0px)"});
 										});
 			} else {
 				var offset = (elements_positions[i] == 0) ? 80:270;
-				console.log('starting supportin annimation of up and low blocks');
-				console.log('Working with element ' + i);
+				// console.log('starting supportin annimation of up and low blocks');
+				// console.log('Working with element ' + i);
+				//  green-block issues - why it changing so slow
+				// $(elements[i]).css() = 
  				$(elements[i]).animate({
 										top: offset,
 										width: secBlock,
@@ -64,7 +69,7 @@ jQuery(function($){
 													top:elements_coordinates[elements_positions[i]]
 												},1000,function(){});
 											// $(elements[i]).css({"-webkit-filter": "blur(1px)"});
-											console.log('Secondary animations must complete now');
+											// console.log('Secondary animations must complete now');
 										});
 			}
 		}
