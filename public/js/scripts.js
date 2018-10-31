@@ -9,6 +9,7 @@ jQuery(function($){
 		for (let i = 0; i<3; i++)
 		{
 			elements_positions[i] = ((elements_positions[i] + 1) > 2) ? 0:(elements_positions[i]+1);
+			if (elements_positions[i] == 0) {$(elements[i]).css({"z-index":"2"})}
 		}
 	};
 
@@ -25,21 +26,18 @@ jQuery(function($){
 		// 2. Обратить внимание на время(+координаты) анимации среднего блока
 		// как то она странно происходит  
 		for (let i = 0; i<3; i++) {
-			// console.log('iteration number =>  ' + i);
 			if (elements_positions[i] == 1) {
-				// console.log('elements_positions is 0 - central block');
-				// console.log('started animations');
-				$(elements[i]).removeClass('secondary');
-				$(elements[i]).animate({
-										'opacity': .75,
-										'font-size': '24px',
-										'top': 135,
-										'width': supBlock-100,
-										'left': 200
+				$(elements[i]).removeClass('secondary')
+								.animate({
+										'z-index': 5,
+										'opacity': .7,
+										'font-size': '23px',
+										'top': 140,
+										'left': 200,
+										'width': supBlock-100
 				},1000,function(){
 					$(elements[i]).css({"z-index":5});
-					// console.log('Main block First animation with opacity and fz is must complete now...');
-				}).animate({
+									}).animate({
 										top: elements_coordinates[elements_positions[i]],
 										width: supBlock,
 										fontSize: '30px',
@@ -51,10 +49,6 @@ jQuery(function($){
 										});
 			} else {
 				var offset = (elements_positions[i] == 0) ? 80:270;
-				// console.log('starting supportin annimation of up and low blocks');
-				// console.log('Working with element ' + i);
-				//  green-block issues - why it changing so slow
-				// $(elements[i]).css() = 
  				$(elements[i]).animate({
 										top: offset,
 										width: secBlock,
@@ -68,8 +62,6 @@ jQuery(function($){
 												.animate({
 													top:elements_coordinates[elements_positions[i]]
 												},1000,function(){});
-											// $(elements[i]).css({"-webkit-filter": "blur(1px)"});
-											// console.log('Secondary animations must complete now');
 										});
 			}
 		}
