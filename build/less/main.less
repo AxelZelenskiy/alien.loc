@@ -23,6 +23,7 @@ body {
 	background-color: gray;
 	.blocks {
 		height: 100px;
+		opacity: .5;
 		text-align: center;
 		width: 400px;
 		border-radius: 5px;
@@ -31,30 +32,32 @@ body {
 		position: absolute;
 		line-height: 100px;
 		font-size: 26px;
-		.secondary {
-			z-index: 4;
-			filter: blur(1px);
-			-webkit-filter: blur(1px); 
-			-moz-filter: blur(1px);
-			-o-filter: blur(1px); 
-			-ms-filter: blur(1px); 
-			transition: 2s filter linear;
-			-webkit-transition: 2s -webkit-filter linear;
-			-moz-transition: 2s -moz-filter linear;
-			-ms-transition: 2s -ms-filter linear;
-			-o-transition: 2s -o-filter linear;
-		}
 
 	}
+		.secondary {
+			// z-index: 4;
+			filter: blur(3px);
+			-webkit-filter: blur(3px); 
+			-moz-filter: blur(3px);
+			-o-filter: blur(3px); 
+			-ms-filter: blur(3px); 
+			transition: 1s filter linear;
+			-webkit-transition: 1s -webkit-filter linear;
+			-moz-transition: 1s -moz-filter linear;
+			-ms-transition: 1s -ms-filter linear;
+			-o-transition: 1s -o-filter linear;
+		}
 	.down1{
 		background-color: #008000;
 		top: 245px;
-		z-index:4;
 	}
 	.upper1{
 		background-color: #b32d00;
 		top: 105px;
-		z-index: 4;
+	}
+	.down1, .upper1{
+		// filter: blur(3px);
+		z-index:4;
 	}
 	.cent{
 		background-color: #003366;
@@ -63,6 +66,7 @@ body {
 		left:150px;
 		width: 600px;
 		z-index: 5;
+		opacity: 1;
 		}
 	}
 	.buttons-block{

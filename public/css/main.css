@@ -23,6 +23,7 @@ body {
 }
 .wrapper #container .blocks {
   height: 100px;
+  opacity: 0.5;
   text-align: center;
   width: 400px;
   border-radius: 5px;
@@ -32,27 +33,28 @@ body {
   line-height: 100px;
   font-size: 26px;
 }
-.wrapper #container .blocks .secondary {
-  z-index: 4;
-  filter: blur(1px);
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  transition: 2s filter linear;
-  -webkit-transition: 2s -webkit-filter linear;
-  -moz-transition: 2s -moz-filter linear;
-  -ms-transition: 2s -ms-filter linear;
-  -o-transition: 2s -o-filter linear;
+.wrapper #container .secondary {
+  filter: blur(3px);
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  transition: 1s filter linear;
+  -webkit-transition: 1s -webkit-filter linear;
+  -moz-transition: 1s -moz-filter linear;
+  -ms-transition: 1s -ms-filter linear;
+  -o-transition: 1s -o-filter linear;
 }
 .wrapper #container .down1 {
   background-color: #008000;
   top: 245px;
-  z-index: 4;
 }
 .wrapper #container .upper1 {
   background-color: #b32d00;
   top: 105px;
+}
+.wrapper #container .down1,
+.wrapper #container .upper1 {
   z-index: 4;
 }
 .wrapper #container .cent {
@@ -62,6 +64,7 @@ body {
   left: 150px;
   width: 600px;
   z-index: 5;
+  opacity: 1;
 }
 .wrapper .buttons-block {
   margin: 0 auto;

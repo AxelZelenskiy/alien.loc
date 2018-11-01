@@ -35,9 +35,11 @@ jQuery(function($){
 			if (elements_positions[i] == 1) {
 				// checking - which key pressed - down or up
 				var mid_top = (move_direction == "down") ? 140 : 215;
-				$(elements[i]).removeClass('secondary')
-								.stop().animate({
+				$(elements[i]).stop()
+								.animate({
 										'z-index': 5,
+										'filter':'blur(0px)',
+										'-webkit-filter':'blur(0px)',
 										'opacity': .7,
 										'font-size': '23px',
 										// top 140 for those who move from up to down - 
@@ -48,7 +50,9 @@ jQuery(function($){
 										'left': 200,
 										'width': supBlock-100
 				},1000,function(){
+
 					$(elements[i]).css({"z-index":5});
+					// .removeClass('secondary');
 									}).animate({
 										top: elements_coordinates[elements_positions[i]],
 										width: supBlock,
@@ -62,6 +66,7 @@ jQuery(function($){
  				$(elements[i]).stop().animate({
 										top: offset,
 										width: secBlock,
+										// "filter":"blur(3px)",
 										fontSize: '18px',
 										"z-index":"4",
 										opacity: 0.5,
