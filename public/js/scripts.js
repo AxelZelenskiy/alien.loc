@@ -8,9 +8,81 @@ jQuery(function($){
 		// default move direction
 		move_direction			=	"down",
 		// check animation complite
-		animation_complite		= 	true;
-	var elements = document.getElementsByClassName('blocks');
+		animation_complite		= 	true,
+		// left panel clocks button indexes
+		clock_index = 1,
+  	 	clock_current_index = 1;
 
+	var elements = document.getElementsByClassName('blocks');
+	// Just for tests -> text for our block{title,message}
+	
+  	// =========================================================
+  	var H2 = function createTitles(text = '') {
+  		if (text != '') {
+  			return ('<h2>'+text+'</h2>');
+  		}
+  	};
+  	var clock_buttons = $('button.nmb-btn');
+  	// clock_current_index - active button
+  	// clock_index  - newly pushed button
+
+  	clock_buttons.on("click",function() {
+  		clock_index = clock_buttons.index($(this));
+  		console.log('new clock_index is '+ clock_index);
+  		console.log('current clock index is '+ clock_current_index);
+  		var tester;
+  		if (clock_index > clock_current_index) {
+  			// move_up
+  			tester = elements_positions.indexOf(2);
+  			console.log('move up and block what i want to change is '+tester);
+  			$.getJSON('js/texts.json', function (json) 
+				  		{
+				  			console.log("can't read this " + json.blocks[clock_index].Title);
+				  		$(elements[tester]).html(
+				  			H2(json.blocks[clock_index].Title) + '<p>' + json.blocks[clock_index].Text + '</p>'
+				  			);
+				  		// console.log(H2(json.blocks[1].Title));
+				      	});
+
+  			move_blocks_up();
+  			clock_current_index = clock_index;
+  		} 
+  		if (clock_index < clock_current_index) {
+  			// move down
+  			tester = elements_positions.indexOf(0);
+  			console.log('move down and i want to change block ' + tester);
+  			$.getJSON('js/texts.json', function (json) 
+				  		{
+				  		$(elements[tester]).html(
+				  			H2(json.blocks[clock_index].Title) + '<p>' + json.blocks[clock_index].Text + '</p>'
+				  			);
+				  		// console.log(H2(json.blocks[1].Title));
+				      	});
+
+  			move_blocks_down();
+  			clock_current_index = clock_index;
+  		}
+
+  	});
+  	function move_blocks_down(){
+  		if (animation_complite) {
+			animation_complite = false;
+			down_press();
+			move_blocks();
+		} else {
+			return;
+		}
+  	};
+  	function move_blocks_up(){
+  		if (animation_complite) {
+		animation_complite = false;	
+		up_press();
+		move_blocks();
+		} else { return;}
+  	};
+
+
+	// =========================================================
 	function down_press(){
 		for (let i = 0; i<3; i++)
 		{
