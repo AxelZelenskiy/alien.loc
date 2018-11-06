@@ -20,7 +20,7 @@ body {
 	overflow: hidden;
 	width: 900px;
 	min-height: 450px;
-	background-color: gray;
+	background-color: #989898;
 	.blocks {
 		height: 100px;
 		opacity: .5;
@@ -30,17 +30,19 @@ body {
 		border: 1px solid black;
 		left: 250px;
 		position: absolute;
-		line-height: 100px;
+		h2,p {
+		line-height: 50px; 
+		}
 		font-size: 26px;
 
 	}
 		.secondary {
 			// z-index: 4;
-			filter: blur(3px);
-			-webkit-filter: blur(3px); 
-			-moz-filter: blur(3px);
-			-o-filter: blur(3px); 
-			-ms-filter: blur(3px); 
+			filter: blur(10px);
+			-webkit-filter: blur(10px); 
+			-moz-filter: blur(10px);
+			-o-filter: blur(10px); 
+			-ms-filter: blur(10px); 
 			transition: 1s filter linear;
 			-webkit-transition: 1s -webkit-filter linear;
 			-moz-transition: 1s -moz-filter linear;
