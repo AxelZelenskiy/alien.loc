@@ -32,10 +32,10 @@ jQuery(function($){
   			// move_up
   			tester = elements_positions.indexOf(2);
   			$.getJSON('js/texts.json', function (json) 
-  			{
-  				$(elements[tester]).html(
-  					H2(json.blocks[clock_index].Title) + '<p>' + json.blocks[clock_index].Text + '</p>'
-  					);
+  					{
+  					$(elements[tester]).html(
+  											H2(json.blocks[clock_index].Title) + '<p>' + json.blocks[clock_index].Text + '</p>'
+  											);
 				  		// console.log(H2(json.blocks[1].Title));
 				  	});
 
