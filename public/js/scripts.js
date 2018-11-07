@@ -27,19 +27,15 @@ jQuery(function($){
 
   	clock_buttons.on("click",function() {
   		clock_index = clock_buttons.index($(this));
-  		// console.log('new clock_index is '+ clock_index);
-  		// console.log('current clock index is '+ clock_current_index);
   		var tester;
   		if (clock_index > clock_current_index) {
   			// move_up
   			tester = elements_positions.indexOf(2);
-  			// console.log('move up and block what i want to change is '+tester);
   			$.getJSON('js/texts.json', function (json) 
-  			{
-  				console.log("can't read this " + json.blocks[clock_index].Title);
-  				$(elements[tester]).html(
-  					H2(json.blocks[clock_index].Title) + '<p>' + json.blocks[clock_index].Text + '</p>'
-  					);
+  					{
+  					$(elements[tester]).html(
+  											H2(json.blocks[clock_index].Title) + '<p>' + json.blocks[clock_index].Text + '</p>'
+  											);
 				  		// console.log(H2(json.blocks[1].Title));
 				  	});
 
@@ -49,7 +45,6 @@ jQuery(function($){
   		if (clock_index < clock_current_index) {
   			// move down
   			tester = elements_positions.indexOf(0);
-  			// console.log('move down and i want to change block ' + tester);
   			$.getJSON('js/texts.json', function (json) 
   			{
   				$(elements[tester]).html(
@@ -100,9 +95,11 @@ jQuery(function($){
 		}
 	};
 
+	// all this params must be downloaded auto from site - 
 	var animate_string1 = '{"z-index":"5","font-size":"23","opacity":"0.7","left":"200px"}',
 		animate_string2 = '{"font-size":"30","opacity":"1","left":"150px"}',
-		full_blured_element= '{"filter":"blur(10px)","-webkit-filter":"blur(10px)","-moz-filter":"blur(10px)","-o-filter":"blur(10px)","-ms-filter":"blur(10px)"}';
+		animate_string3 = '{"z-index":"4","font-size":"18","opacity":"0.5","left":"250px"}',
+		full_blured_element= '{"filter":"blur(10)","-webkit-filter":"blur(10)","-moz-filter":"blur(10px)","-o-filter":"blur(10px)","-ms-filter":"blur(10px)"}';
 
 	function move_blocks(){
 		for (let i = 0; i<3; i++) {
@@ -114,22 +111,20 @@ jQuery(function($){
 					tmp_str2 = gen_animate_string(elements_coordinates[elements_positions[i]],supBlock,animate_string2),
 					animate_params1 = jQuery.parseJSON(tmp_str1),
 					animate_params2 = jQuery.parseJSON(tmp_str2),
-					blur_css_value_start = 10,
-					blur_css_value_end = 5,
-					blur_css = jQuery.parseJSON(full_blured_element);
-				$(elements[i]).css(blur_css)
+					blur_value10 = 10,
+					blur_value5 = 5;
+					// blur_css = jQuery.parseJSON(full_blured_element);
+				$(elements[i]).css(get_blur_JSON(blur_value10))
+				.removeClass('secondary')
 				// blur deleted from animate
 				.animate(
 							animate_params1,
 							{
-								duration:1000,
+								duration:600,
 								step:function(){
-									if (blur_css_value_start > blur_css_value_end) {
-										var gen_string = '{"filter":"blur('+blur_css_value_start+')","-webkit-filter":"blur('+
-										blur_css_value_start+')"}';
-										blur_css_value_start--;
-										var new_css = jQuery.parseJSON(gen_string);
-										$(elements[i]).css(new_css);
+									if (blur_value10 > blur_value5) {
+										$(elements[i]).css(get_blur_JSON(blur_value10));
+										blur_value10--;
 									}
 								},
 								complete:function(){
@@ -139,34 +134,32 @@ jQuery(function($){
 										.animate(
 											animate_params2,
 											{
-												duration:1000,
+												duration:600,
 												step:function(){
-													if (blur_css_value_end >= 0) {
-													var gen_string = '{"filter":"blur('+blur_css_value_end+')","-webkit-filter":"blur('+
-													blur_css_value_end+')"}';
-													blur_css_value_end--;
-													var new_css = jQuery.parseJSON(gen_string);
-													$(elements[i]).css(new_css);
-									}
+													if (blur_value5 >= 0) {
+													$(elements[i]).css(get_blur_JSON(blur_value5));
+													blur_value5--;
+																				}
 												},
 												complete:function(){}
 											});
 								}});
 								
 								} else {
+									$(elements[i]).removeClass('secondary').css(get_blur_JSON(10));
 									var offset = (elements_positions[i] == 0) ? 80:270;
-									$(elements[i]).animate({
-										top: offset,
-										width: secBlock,
-										fontSize: '18px',
-										"z-index":"4",
-										opacity: 0.5,
-										left: 250
-									},1000,function(){
-										$(elements[i]).css(blur_css)
+									var tmp_str3 = gen_animate_string(offset,secBlock,animate_string3),
+										animate_params3 = jQuery.parseJSON(tmp_str3);
+									$(elements[i])
+									.animate(
+										animate_params3,
+										600,
+										function(){
+										$(elements[i])
+										// .css(get_blur_JSON(10))
 										.animate({
 											top:elements_coordinates[elements_positions[i]]
-										},1000,function(){animation_complite = true });
+											},600,function(){animation_complite = true });
 									});
 								// else end
 								}
@@ -210,6 +203,11 @@ jQuery(function($){
 				console.log("Function get string with zero length");
 				return "";
 				};
+	};
+	function get_blur_JSON(cur_blur){
+		let gen_string = '{"filter":"blur('+cur_blur+'px)","-webkit-filter":"blur('+
+		cur_blur+'px)"}';
+		return jQuery.parseJSON(gen_string);
 	};
 
 
