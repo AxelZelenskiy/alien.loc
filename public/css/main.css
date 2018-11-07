@@ -30,7 +30,7 @@ body {
   border: 1px solid black;
   left: 250px;
   position: absolute;
-  font-size: 26px;
+  font-size: 23px;
 }
 .wrapper #container .blocks h2,
 .wrapper #container .blocks p {
@@ -83,7 +83,7 @@ body {
   height: 100px;
   width: 200px ;
   display: inline-block;
-  font-size: 28px;
+  font-size: 23px;
 }
 .wrapper .buttons-block .ngen {
   margin-top: 50px;
