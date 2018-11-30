@@ -1,30 +1,39 @@
 var gulp 		=	require('gulp'),
 	less		=	require('gulp-less'),
-	livereload	=	require('gulp-livereload');
+	notify		= 	require('gulp-notify'),
+	plumber     = 	require("gulp-plumber"),
+	browserSync = 	require('browser-sync');
 
 gulp.task('less',function(){
 	gulp.src('build/less/*.less')
-	.pipe(less())
-	.pipe(gulp.dest('public/css/'))
-	.pipe(livereload());
+		.on("error", notify.onError("Error: <%= error.message %>"))
+		.pipe(less())
+		.pipe(gulp.dest('public/css/'))
+		.pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('HTML',function(){
 	gulp.src('public/*.html')
-	.pipe(livereload());
+	.pipe(browserSync.reload({stream:true}));
 });
 
 gulp.task('JS',function(){
 	gulp.src('public/js/*.js')
-	.pipe(livereload());
+	.pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task("browser-sync",function () {
+    browserSync.init({
+        proxy:"alien.loc"
+    });
+});
 
-gulp.task('watch',function(){
-	livereload.listen(35729);
+gulp.task('watch',["HTML",'less','JS','browser-sync'],function(){
+	// livereload.listen(35729);
 	gulp.watch('public/*.html',['HTML']);
 	gulp.watch('build/less/*.less',['less']);
 	gulp.watch('public/js/*.js',['JS']);
+	gulp.watch("public/*.html",browserSync.reload);
 });
 
 
