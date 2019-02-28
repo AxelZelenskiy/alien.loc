@@ -17,6 +17,11 @@ gulp.task('HTML',function(){
 	.pipe(browserSync.reload({stream:true}));
 });
 
+gulp.task('SingleCSSFile',function(){
+	gulp.src('public/css/explorer.css')
+	.pipe(browserSync.reload({stream:true}));
+});
+
 gulp.task('JS',function(){
 	gulp.src('public/js/*.js')
 	.pipe(browserSync.reload({stream:true}));
@@ -33,6 +38,7 @@ gulp.task('watch',["HTML",'less','JS','browser-sync'],function(){
 	gulp.watch('public/*.html',['HTML']);
 	gulp.watch('build/less/*.less',['less']);
 	gulp.watch('public/js/*.js',['JS']);
+	gulp.watch('public/css/explorer.css',['SingleCSSFile']);
 	gulp.watch("public/*.html",browserSync.reload);
 });
 
