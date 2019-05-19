@@ -1,0 +1,140 @@
+html,
+body {
+  height: 100%;
+  background-color: #3F647FFF;
+  overflow: hidden;
+}
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 22px;
+  font-weight: bold;
+  font-family: Roboto;
+}
+.phone-cell {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  height: 200px;
+  width: 200px;
+  border: 3px solid #FFD800FF;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  cursor: pointer;
+  background-color: #212121;
+  text-transform: uppercase;
+}
+.phone-cell .icon {
+  position: absolute;
+  text-align: center;
+  font-size: 100px;
+  top: 50px;
+  left: 60px;
+  color: white;
+  opacity: 1;
+  -webkit-animation: phone-rotating 3s ease-in-out infinite;
+          animation: phone-rotating 3s ease-in-out infinite;
+}
+.phone-cell .text {
+  text-align: center;
+  line-height: 200px;
+  opacity: 0;
+  -webkit-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+          transform: scaleX(-1);
+  color: white;
+}
+.phone-cell:hover .text {
+  opacity: 1;
+  -webkit-transform: scaleX(1);
+      -ms-transform: scaleX(1);
+          transform: scaleX(1);
+}
+.phone-cell:hover .icon {
+  opacity: 0;
+  -webkit-transform: scale(0);
+      -ms-transform: scale(0);
+          transform: scale(0);
+}
+.phone-cell .icon,
+.phone-cell .text,
+.phone-cell:hover .icon,
+.phone-cell:hover .text {
+  -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.phone-cell:hover::before,
+.phone-cell:hover::after {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: -25px;
+  right: -25px;
+  bottom: -25px;
+  border: 1px solid white;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  -webkit-animation: pulsing 3s ease infinite;
+          animation: pulsing 3s ease infinite;
+}
+.phone-cell:hover::after {
+  -webkit-animation-delay: 1s;
+          animation-delay: 1s;
+}
+@-webkit-keyframes phone-rotating {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+}
+@keyframes phone-rotating {
+  0%,
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+}
+@-webkit-keyframes pulsing {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    opacity: 0;
+  }
+}
+@keyframes pulsing {
+  0% {
+    opacity: 0;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1.2);
+            transform: scale(1.2);
+    opacity: 0;
+  }
+}
