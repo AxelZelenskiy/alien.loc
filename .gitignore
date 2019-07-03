@@ -1,1 +1,6 @@
+.gitignore
+.idea/
 node_modules/
+public/smartys/templates_c/
+public/smartys/cache/
+vendor/
