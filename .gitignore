@@ -1,4 +1,3 @@
-.gitignore
 .idea/
 node_modules/
 public/smartys/templates_c/
