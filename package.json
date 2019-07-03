@@ -9,12 +9,12 @@
   "author": "AVZ",
   "license": "MIT",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
+    "browser-sync": "^2.26.7",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^6.0.0",
+    "gulp-autoprefixer": "^6.1.0",
     "gulp-less": "^4.0.1",
     "gulp-notify": "^3.2.0",
-    "gulp-plumber": "^1.2.0"
+    "gulp-plumber": "^1.2.1"
   },
   "dependencies": {},
   "repository": {
@@ -24,5 +24,18 @@
   "bugs": {
     "url": "https://github.com/AxelZelenskiy/alien.loc/issues"
   },
+  "browserslist": [
+    "> 1%",
+    "ie >= 8",
+    "edge >= 15",
+    "ie_mob >= 10",
+    "ff >= 45",
+    "chrome >= 45",
+    "safari >= 7",
+    "opera >= 23",
+    "ios >= 7",
+    "android >= 4",
+    "bb >= 10"
+  ],
   "homepage": "https://github.com/AxelZelenskiy/alien.loc#readme"
 }

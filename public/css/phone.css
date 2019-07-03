@@ -22,8 +22,7 @@ body {
   height: 200px;
   width: 200px;
   border: 3px solid #FFD800FF;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   cursor: pointer;
   background-color: #212121;
   text-transform: uppercase;
@@ -65,7 +64,6 @@ body {
 .phone-cell:hover .icon,
 .phone-cell:hover .text {
   -webkit-transition: all 1s ease-in-out;
-  -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
 .phone-cell:hover::before,
@@ -77,8 +75,7 @@ body {
   right: -25px;
   bottom: -25px;
   border: 1px solid white;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   -webkit-animation: pulsing 3s ease infinite;
           animation: pulsing 3s ease infinite;
 }

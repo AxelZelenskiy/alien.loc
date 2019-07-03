@@ -10,7 +10,7 @@ gulp.task('less',function(){
 		.on("error", notify.onError("Error: <%= error.message %>"))
 		.pipe(less())
 		.pipe(autoprefixer(
-				{ browsers: ['last 25 versions'] }
+				// { browsers: ['last 25 versions'] }
 			))
 		.pipe(gulp.dest('public/css/'))
 		.pipe(browserSync.reload({stream:true}));
