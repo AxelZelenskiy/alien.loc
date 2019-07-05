@@ -129,10 +129,18 @@ $parsed_data = <<<EOL
 </soap:Envelope>
 EOL;
 // xd($parsed_data);
-$xml_simple =  new SimpleXMLElement($parsed_data);
+$my_str = "<soap:Body> </soap:Body> <ns2:createGlobalNaturalCustomerResponse xmlns:ns2=\"http://v4.xxxxxx.xxxxxxx.com/\"> </ns2:createGlobalNaturalCustomerResponse>";
+$catch = preg_replace("/(<\/?)(\w+):([^>]*>)/", "$1$2$3",$my_str);
+xd($catch);
+// $xml_simple =  new SimpleXMLElement($catch);
+// xd($xml_simple);
 // file_put_contents('0day.txt',$parsed_data,FILE_APPEND);
-$new_try = explode(PHP_EOL, $parsed_data);
-xd($new_try);
+
+// $new_try = explode(PHP_EOL, $parsed_data);
+// xd($new_try);
+$xml = simplexml_load_file('0day.txt');
+print_r($xml);
+$xml->asXML();
 
 $xmlstr = <<<XML
 <?xml version='1.0' standalone='yes'?>
@@ -166,3 +174,4 @@ XML;
 $movies = new SimpleXMLElement($xmlstr);
 
 echo $movies->movie[0]->plot;
+xd($movies);
