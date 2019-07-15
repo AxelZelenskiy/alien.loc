@@ -1,0 +1,19 @@
+*,html,body {
+	padding: 0;
+	margin: 0;
+	width: 100%;
+	height: 100%;
+}
+.wrapper {
+	height: 100%;
+	width: 100%;
+	font-size: 26px;
+	font-family: Roboto;
+	background-color: #B0BEC5;
+}
+.wrapper .line {
+	text-align: center;
+	margin: 0 auto;
+	width: 70%;
+	background-color: #6D4C41;
+}

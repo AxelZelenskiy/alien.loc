@@ -95,6 +95,7 @@ jQuery(function($){
 		}
 	};
 
+	// all this params must be downloaded auto from site - 
 	var animate_string1 = '{"z-index":"5","font-size":"23","opacity":"0.7","left":"200px"}',
 		animate_string2 = '{"font-size":"30","opacity":"1","left":"150px"}',
 		animate_string3 = '{"z-index":"4","font-size":"18","opacity":"0.5","left":"250px"}',

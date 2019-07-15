@@ -1,0 +1,15 @@
+{
+    "name": "avz/alien.loc",
+    "description": "just tests and nothing else",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alex Zelensky",
+            "email": "alex.zelensky@hotmail.com"
+        }
+    ],
+    "require": {
+        "monolog/monolog": "^1.24",
+        "smarty/smarty": "^3.1"
+    }
+}
