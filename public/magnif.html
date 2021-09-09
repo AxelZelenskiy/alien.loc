@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Magnific popup testing</title>
+		<!-- Magnific Popup core CSS file -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+		<!-- jQuery 1.7.2+ or Zepto.js 1.0+ -->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/magnif.css">
+		<script>
+			$(document).ready(function(){
+				$('.gal').magnificPopup({
+						delegate: 'a',
+						preloader: true,
+						gallery: {
+			                        enabled: true
+				                    },
+						type: 'image',
+						mainClass: 'mfp-with-zoom',
+						closeOnContentClick: true,
+  						tLoading: '',
+						zoom: {
+						    enabled: true,
+						    duration: 700, // duration of the effect, in milliseconds
+						    easing: 'ease-in-out', // CSS transition easing function
+
+						    // The "opener" function should return the element from which popup will be zoomed in
+						    // and to which popup will be scaled down
+						    // By defailt it looks for an image tag:
+						    opener: function(openerElement) {
+						      // openerElement is the element on which popup was initialized, in this case its <a> tag
+						      // you don't need to add "opener" option if this code matches your needs, it's defailt one.
+						      return openerElement.is('img') ? openerElement : openerElement.find('img');
+						    }
+						}
+
+						  
+				});
+
+
+				$('.gal1').magnificPopup({
+						preloader: true,
+						gallery: {
+			                        enabled: true
+				                    },
+						type: 'image',
+			            callbacks: {
+						            elementParse: function(item) {
+						                    item.src = item.el.attr('src');
+														             }
+			            }
+						
+					});
+
+			// close ready function 
+				});
+
+
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<ul class="list-item-group">
+						<li class="list-item">
+							preloader option - not working
+						</li>
+						<li class="list-item">
+							delegate to img - many issues
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col gal">
+					<h2>List of 3 images in "a" tag : </h2>
+					<a href="https://images.pexels.com/photos/923023/pexels-photo-923023.jpeg"> <img src="https://images.pexels.com/photos/923023/pexels-photo-923023.jpeg" alt="Door 1"></a>
+					<a href="https://images.pexels.com/photos/1002669/pexels-photo-1002669.jpeg"><img src="https://images.pexels.com/photos/1002669/pexels-photo-1002669.jpeg" alt="door 2"></a>
+					<a href="https://images.pexels.com/photos/277572/pexels-photo-277572.jpeg"><img src="https://images.pexels.com/photos/277572/pexels-photo-277572.jpeg" alt="Doord"></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col gal1">
+					<h2>List of 3 images without "a" tag - only img</h2>
+					<img src="https://images.pexels.com/photos/923023/pexels-photo-923023.jpeg" alt="">
+					<img src="https://images.pexels.com/photos/1002669/pexels-photo-1002669.jpeg" alt="">
+					<img src="https://images.pexels.com/photos/277572/pexels-photo-277572.jpeg" alt="">
+				</div>
+			</div>
+		</div>
+		
+	</body>
+</html>

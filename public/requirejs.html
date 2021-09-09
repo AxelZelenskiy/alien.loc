@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Testing require.js</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	
+</head>
+<body>
+	<header>
+		<nav>
+			<ul class="nav">
+				<li class="nav-item">First</li>
+				<li class="nav-item">Sectond</li>
+				<li class="nav-item">Third</li>
+				<li class="nav-item">4th</li>
+			</ul>
+		</nav>
+	</header>
+	<article>
+		<div class="container">
+			<div class="row ">
+				<div class="col">
+					<h2 class="h7">
+						hello world!
+					</h2>
+				</div>
+			</div>
+		</div>
+	</article>
+	<footer>
+		footer here
+	</footer>
+	<script data-main="js/config" src="js/require.js"></script>
+	<!-- <script src="js/config.js"></script> -->
+	<script>
+		require(['config'],function(){
+			require(['jquery'], function($){
+				$('.h7').text('Hello from inner func of requirejs');
+			});
+		});
+	</script>
+</body>
+</html>

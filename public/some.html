@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<form id="formElem">
+  <input type="text" name="name" value="John">
+  <input type="text" name="surname" value="Smith">
+  <input type="submit">
+</form>
+
+<script>
+  formElem.onsubmit = async (e) => {
+    e.preventDefault();
+    let data = new FormData(formElem);
+    let response = await fetch('/t1.php', {
+      method: 'POST',
+      body: data
+    })
+    .then( response => {
+      let data = response.json();
+      return data;
+    } )
+    .then( data => { console.log(data)});
+  };
+</script>
+</body>
+</html>
