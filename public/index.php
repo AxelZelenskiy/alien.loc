@@ -11,6 +11,9 @@
 		<div class="container mt-3">
 			<h2 class="text-center">Index page of alien.loc test site</h2>
 			<ul class="list-group list-group-flush">
+				<li class="list-group-item"><a href="hello.html">
+					Разработка jQuery плагина для другого проекта(TI).
+				</a></li>
 				<li class="list-group-item"><a href="ajax-tests.html">
 					XMLHttpRequest тестирование.
 				</a></li>
@@ -26,6 +29,8 @@
 				<li class="list-group-item"><a href="magnif.html">Тестирование библиотеки MagnificPopup(галерея - всплывающие изображения)</a></li>
 				<li class="list-group-item"><a href="phone.html">Разработка анимации телефона(обр. связь)</a></li>
 				<li class="list-group-item"><a href="requirejs.html">Эксперемент с библиотекой RequireJS</a></li>
+				<li class="list-group-item"><a href="test_smarty.php">Тестирование шаблонизатора Smarty</a></li>
+				<li class="list-group-item"><a href="iexplorer.html">Тестирование кроссбраузерной HTML разметки для другого проекта</a></li>
 			</ul>
 		</div>
 	</div>
