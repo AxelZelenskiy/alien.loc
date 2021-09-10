@@ -17,10 +17,15 @@
 				<li class="list-group-item"><a href="ajax_request.html">XMLHttpRequest Get request to file and parse</a></li>
 				<li class="list-group-item">
 					<a href="anim-frame.html">Тестирование requestAnimationFrame из JS</a>
+				</li><li class="list-group-item">
+					<a href="anim-frame2.html">Тестирование requestAnimationFrame 2 из JS</a>
 				</li>
 				<li class="list-group-item"><a href="jquery_tests.html">Какие то тесты по созданию плагинов на jQuery</a></li>
 				<li class="list-group-item"><a href="mzks.html">Решение вопроса пользователя форума.</a></li>
 				<li class="list-group-item"><a href="some.html">Ajax request testing (fetch) </a></li>
+				<li class="list-group-item"><a href="magnif.html">Тестирование библиотеки MagnificPopup(галерея - всплывающие изображения)</a></li>
+				<li class="list-group-item"><a href="phone.html">Разработка анимации телефона(обр. связь)</a></li>
+				<li class="list-group-item"><a href="requirejs.html">Эксперемент с библиотекой RequireJS</a></li>
 			</ul>
 		</div>
 	</div>
