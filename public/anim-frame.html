@@ -6,13 +6,12 @@
 	<title>RequestAnimFrame test</title>
 	<style>
 		*, html {
-		height: 100%;
-		width: 100%;
+			margin:0;
+			padding: 0;
 		box-sizing:border-box;
 		}
 		.text-div{
 			height: 3rem;
-			/*text-align: center;*/
 			margin-bottom: 2rem;
 		}
 		.ball-field{ 
@@ -26,10 +25,47 @@
 			width: 100px;
 			background-color: orange;
 		}
+		.header {
+			height: 15%;
+			background-color: #60675C;
+			color: #EAEEEF;
+			padding-top: 1rem;
+		}
+		h2 { text-align: center; }
+		.left,.right{
+			width: 50%;
+			padding: 1rem;
+		}
+		.left{float: left; }
+		.right{float: right; text-align: right;}
+		.right::after{
+			display: block;
+			content: '';
+			clear: both;
+
+		}
+		p{ padding: 1rem; }
+		li{ padding-left: 1rem; }
+		ul:last-child{
+			padding-bottom: 1rem;
+		}
+		
+		hr { width: 65%; margin: 0 auto; }
 	</style>
 </head>
 <body>
+	<div class="header">
+		<h2>requestAnimationFrame test #1</h2>
+		<div class="left"><a href="/" type="button">Back</a></div>
+		<div class="right"><a href="anim-frame2.html">Next</a></div>
+		<p>Two simple animations:</p>
+		<ul>
+			<li>Text writing animation.</li>
+			<li>First ball animation with request animation frame.</li>
+		</ul>
+	</div>
 	<div class="text-div"></div>
+		<hr>	
 	<div class="ball-field">
 		<div class="ball"></div>
 	</div>

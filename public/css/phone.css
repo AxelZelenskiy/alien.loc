@@ -64,6 +64,7 @@ body {
 .phone-cell:hover .icon,
 .phone-cell:hover .text {
   -webkit-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
   transition: all 1s ease-in-out;
 }
 .phone-cell:hover::before,

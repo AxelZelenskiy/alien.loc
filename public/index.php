@@ -10,6 +10,11 @@
 	<div class="wrapper">
 		<div class="container mt-3">
 			<h2 class="text-center">Index page of alien.loc test site</h2>
+			<p>
+				Таск-менеджер проекта Gulp-4 - настройка минимальная, т.к. проект тестовый и "заморачиваться" с таск-менеджером не было никакого желания.
+			</p>
+			<p>Препроцессор файлов CSS - less. Обработка less файлов происходит из папки build/ </p>
+
 			<ul class="list-group list-group-flush">
 				<li class="list-group-item"><a href="hello.html">
 					Разработка jQuery плагина для другого проекта(TI).

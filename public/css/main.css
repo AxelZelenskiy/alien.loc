@@ -43,6 +43,7 @@ body {
   -o-filter: blur(10px);
   -ms-filter: blur(10px);
   transition: 1s -webkit-filter linear;
+  -o-transition: 1s filter linear;
   transition: 1s filter linear;
   transition: 1s filter linear, 1s -webkit-filter linear;
   -webkit-transition: 1s -webkit-filter linear;
