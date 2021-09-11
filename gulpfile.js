@@ -9,10 +9,10 @@ var { src, dest, parallel, watch } 	=	require('gulp'),
 function BrowSync(){
 	return browserSync.init({
 		proxy: "alien.loc"
-	})
+	});
 }
 
-function styles(){
+function style(){
 	return src("build/less/*.less")
 			.on("error", notify.onError("Error: <%= error.message %>"))
 			.pipe(less())
@@ -24,15 +24,15 @@ function styles(){
 }
 
 function start_watching(){
-	watch('build/less/*.less',styles);
+	watch('build/less/*.less',style);
 	watch(['public/*.html','public/**/*.html']).on("change",browserSync.reload);
 	watch('public/js/**/*.js').on("change",browserSync.reload);
 }
 
 exports.BrowSync = BrowSync;
-exports.styles = styles;
+exports.styles = style;
 
-exports.default = parallel(styles,BrowSync,start_watching);
+exports.default = parallel(BrowSync,style,start_watching);
 // gulp.task('less',function(){
 // 	gulp.src('build/less/*.less')
 // 		.on("error", notify.onError("Error: <%= error.message %>"))

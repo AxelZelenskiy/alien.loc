@@ -4,71 +4,61 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>RequestAnimFrame test</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/anim-frame.css">
 	<style>
-		*, html {
-			margin:0;
-			padding: 0;
-		box-sizing:border-box;
+		.ball-field{
+			height: 65vh;
+			position: relative;
 		}
-		.text-div{
-			height: 3rem;
-			margin-bottom: 2rem;
-		}
-		.ball-field{ 
-		position: relative;
-		height: 100%;
-		width: 100%; }
-		.ball {
-			position: absolute;
+		.ball{
 			border-radius: 50%;
-			height: 100px;
-			width: 100px;
-			background-color: orange;
+			position: absolute;
+			top: 1rem; left: 1rem;
+			height: 50px; width: 50px;
+			border: 1px solid #23221F;
+			background-color: #E62F2F;
 		}
-		.header {
-			height: 15%;
-			background-color: #60675C;
-			color: #EAEEEF;
-			padding-top: 1rem;
-		}
-		h2 { text-align: center; }
-		.left,.right{
-			width: 50%;
-			padding: 1rem;
-		}
-		.left{float: left; }
-		.right{float: right; text-align: right;}
-		.right::after{
-			display: block;
-			content: '';
-			clear: both;
-
-		}
-		p{ padding: 1rem; }
-		li{ padding-left: 1rem; }
-		ul:last-child{
-			padding-bottom: 1rem;
-		}
-		
-		hr { width: 65%; margin: 0 auto; }
 	</style>
 </head>
 <body>
-	<div class="header">
-		<h2>requestAnimationFrame test #1</h2>
-		<div class="left"><a href="/" type="button">Back</a></div>
-		<div class="right"><a href="anim-frame2.html">Next</a></div>
-		<p>Two simple animations:</p>
-		<ul>
-			<li>Text writing animation.</li>
-			<li>First ball animation with request animation frame.</li>
-		</ul>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h2 class="text-center mt-1">requestAnimationFrame test #1</h2>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col d-flex justify-content-between">
+				<button class="btn btn-secondary justify"><a class="text-decoration text-white" href="/">Back</a></button>
+				<button class="btn btn-secondary"><a class="text-decoration text-white" href="anim-frame2.html">Next</a></button>
+				<!-- <div class="left"><a href="/" class="btn">Back</a></div> -->
+				<!-- <div class="right"><a href="anim-frame2.html" class="btn">Next</a></div> -->
+			</div>
+		</div>
+		<div class="row">
+			<div class="col mt-1">
+				<h4>Two simple animations:</h4>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Text writing animation.</li>
+					<li class="list-group-item">First ball animation with request animation frame.</li>
+				</ul>
+			</div>
+		</div>
 	</div>
-	<div class="text-div"></div>
-		<hr>	
-	<div class="ball-field">
-		<div class="ball"></div>
+	<div class="container">
+		<div class="row">
+			<div class="col justify-content-center">
+				<div class="text-div"></div>
+			</div>
+		</div>
 	</div>
+	<div class="container">
+		<div class="ball-field">
+			<div class="ball"></div>
+		</div>
+	</div>
+	
 	<script type="text/javascript" src="js/AnimFrame/anim-frame.js"></script>
 </body>
 </html>

@@ -4,21 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Anim Frame tests 2</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/anim-frame.css">
 	<style>
-		*,html{
-			margin: 0;padding: 0;
-			box-sizing: border-box;
-		}
 		.wrapper {
 			width: 100%;
 		}
-		h2 {
-			text-align: center;
-			margin-top: 3rem;
-		}
 		.main {
 			margin-top: 3rem;
-			height: 80vh;
+			height: 65vh;
 			width: 100%;
 			position: relative;
 			border: 1px solid #057E1C;
@@ -41,23 +35,30 @@
 			background-color: #F09512; 
 			right: 30px;
 		 }
-		 .header {
-		 	text-align: center;
-		 }
-		 button.btn {
-		 	margin: 0 auto;
-		 	text-align: center;
-		 	padding: 0.3rem;
-		 }
+		 		
 	</style>
 </head>
 <body>
 <script type="text/javascript"></script>
-<div class="wrapper">
-	<div class="container header">
-		<h2>requestAnimationFrame test #2</h2>
-		<div>
-			<button type="button" class="btn">Restart Animation</button>
+<div class="container">
+	<div class="row">
+		<div class="col mt-2">
+			<h2 class="text-center">
+				requestAnimationFrame test #2
+			</h2>
+		</div>
+	</div>
+	<div class="row">
+			<div class="col d-flex justify-content-center">
+				<button class="btn btn-secondary">
+					Restart Animation
+				</button>
+			</div>
+	</div>
+	<div class="row">
+		<div class="col d-flex justify-content-between">
+			<button class="btn btn-secondary"><a class="text-white" href="anim-frame.html">Prev</a></button>
+			<button class="btn btn-secondary"><a class="text-white" href="/">Home</a></button>
 		</div>
 	</div>
 </div>
