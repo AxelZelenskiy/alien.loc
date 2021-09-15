@@ -24,6 +24,9 @@
 				</a></li>
 				<li class="list-group-item"><a href="ajax_request.html">XMLHttpRequest Get request to file and parse</a></li>
 				<li class="list-group-item">
+					<a href="ajax/fetch-php.html"> Fetch - php with method delete testing</a>
+				</li>
+				<li class="list-group-item">
 					<a href="anim-frame.html">Тестирование requestAnimationFrame из JS</a>
 				</li><li class="list-group-item">
 					<a href="anim-frame2.html">Тестирование requestAnimationFrame 2 из JS</a>
