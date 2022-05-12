@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3 class="text-center">Pattern Decorator</h3>
+				<span class="text-danger">
+					class Car must be interface, but we use it as abstract class for cars.
+				</span>
+				<pre>
+					class Car {
+
+						constructor() {
+							this.price = 10000;
+							this.model = 'Car'
+						}
+
+						getPrice() {
+							return this.price;
+						}
+
+						getDescription() {
+							return this.model
+						}
+					}
+
+					class Tesla extends Car {
+
+						constructor() {
+							super();
+							this.price = 25000;
+							this.model = 'Tesla';
+						}
+					}
+
+					class Autopilot {
+						constructor(car) {
+							this.car = car;
+					  	}
+
+						getPrice() {
+							return <span class="text-danger">this.car.getPrice()</span> + 5000;
+						}
+					  
+						getDescription() {
+							return <span class="text-danger">`${this.car.getDescription()}</span> with autopilot`;
+						}
+					}
+
+					class Parktronic {
+						constructor(car) {
+							this.car = car;
+						}
+
+						getPrice() {
+							return <span class="text-danger">this.car.getPrice()</span> + 3000;
+						}
+					  
+						getDescription() {
+							return `<span class="text-danger">${this.car.getDescription()}</span> with parktronic`;
+						}
+					}
+				</pre>
+			</div>
+		</div>
+	</div>
+	<script src="js/main.js"></script>
+</body>
+</html>

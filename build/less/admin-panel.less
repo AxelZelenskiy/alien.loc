@@ -1,0 +1,154 @@
+@bgMain : #353535;
+@fntMain : #d9d9d9;
+@bgSecondary : #284B63;
+
+*,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.left-menu,
+.top-menu {
+    background-color: @bgMain;
+    color: @fntMain;
+}
+
+.left-menu {
+    height: 100vh;
+    width: 14%;
+    float: left;
+    position: relative;
+
+    .left-menu-control {
+        span {
+            display: inline-block;
+            width: 2rem;
+            height: 2rem;
+            margin-top: 0.4rem;
+            background-image: url('../img/menu_open_white.svg');
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+        }
+
+        text-align: center;
+        height: 5%;
+        cursor: pointer;
+        position: relative;
+    }
+
+    .left-menu-main {
+        margin-top: 2rem;
+
+        ul {
+        	list-style-type: none;
+
+            li {
+                padding-left: 1rem;
+                margin-bottom: 0.5rem;
+                position: relative;
+                text-align: center;
+                // overflow: hidden;
+                transition: .5s;
+                span {
+                    margin-left: 0.5rem;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: @fntMain;
+                }
+            }
+            li:hover {
+            	transform: scale(1.1);
+            	transition: .5s;
+            }
+
+            li::after {
+                content: '';
+                display: block;
+                text-align: center;
+                position: absolute;
+                left: 55%;
+                transform: translateX(-50%);
+                height: 1px;
+                width: 20%;
+                background-color: #fff;
+                transition: .5s;
+            }
+            li:hover::after {
+            	width: 50%;
+            	transition: .5s;
+            }
+        }
+    }
+
+    .left-menu-footer {
+        position: absolute;
+        bottom: 2.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2rem;
+        width: 2rem;
+        background-image: url('../img/logout_white.svg');
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        cursor: pointer;
+    }
+}
+
+.right-block {
+    float: right;
+    height: 100vh;
+    width: 86%;
+    color: @bgSecondary;
+    background-color: @fntMain;
+    overflow: hidden;
+
+    .top-menu {
+        width: 100%;
+        height: 5%;
+        position: relative;
+
+        .logo,
+        .user-profile {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+
+        .logo {
+            left: 5%;
+
+            .logo-img , .logo-info {
+                display: inline-block;   
+            }
+            .info {
+            	margin-left: 0.6rem;
+            	h6 {
+            		font-size: 0.7rem;
+            		margin-bottom: 0;
+            		padding: 0;
+            	}
+            	span {
+            		font-size: 0.7rem;
+            		margin-top: 0;
+            	}
+            }
+
+        }
+
+        .user-profile {
+            right: 5%;
+        }
+    }
+
+    .content {
+        width: 100%;
+        height: 100%;
+    }
+}

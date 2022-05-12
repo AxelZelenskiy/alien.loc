@@ -29,8 +29,41 @@ function start_watching(){
 	watch('public/js/**/*.js').on("change",browserSync.reload);
 }
 
+function browserSyncAdminPanel(done){
+	browserSync.init({
+		proxy: "alien.loc/admin-panel/"
+	});
+	done();
+}
+
+function stylesAdminPanel(){
+	return src('build/less/admin-panel.less')
+	.on("error", notify.onError("Error: <%= error.message %>"))
+	.pipe(less())
+	.pipe(autoprefixer({
+		overrideBrowserslist: ["last 10 versions"]
+	}))
+	.pipe(dest('public/admin-panel/assets/css/'))
+	.pipe(browserSync.stream());
+}
+
+function scriptsAdminPanel(){
+	return src('build/js/admin-panel.js')
+	.on("error", notify.onError("Error: <%= error.message %>"))
+	.pipe(dest('public/admin-panel/assets/js/'))
+	.pipe(browserSync.stream());
+}
+
+function watchAdminPanel(){
+	watch('public/admin-panel/index.html').on("change", browserSync.reload);
+	watch('build/less/admin-panel.less',stylesAdminPanel);
+	watch('build/js/*.js',scriptsAdminPanel);
+}
+
 exports.BrowSync = BrowSync;
 exports.styles = style;
+
+exports.admin = parallel(browserSyncAdminPanel, stylesAdminPanel, scriptsAdminPanel, watchAdminPanel);
 
 exports.default = parallel(BrowSync,style,start_watching);
 // gulp.task('less',function(){

@@ -39,6 +39,8 @@
 				<li class="list-group-item"><a href="requirejs.html">Эксперемент с библиотекой RequireJS</a></li>
 				<li class="list-group-item"><a href="test_smarty.php">Тестирование шаблонизатора Smarty</a></li>
 				<li class="list-group-item"><a href="iexplorer.html">Тестирование кроссбраузерной HTML разметки для другого проекта</a></li>
+				<li class="list-group-item"><a href="patterns/decorator/index.html">Pattern Decorator</a></li>
+				<li class="list-group-item"><a href="eventListenersIssue.html">Issues with EventListeners</a></li>
 			</ul>
 		</div>
 	</div>

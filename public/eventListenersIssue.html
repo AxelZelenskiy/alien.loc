@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EventListeners Issues</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<style>
+		.test{
+			min-height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container mt-3">
+		<div class="row">
+			<div class="col bg-info text-white">
+				<h4 class="text-center mt-2">Issues with dynamic created dom elements and eventlisteners</h4>
+				<div class="bg-danger test mb-4 d-flex align-items-center justify-content-center">
+					<div>
+						<h5 class="text-center">Please, cleack on me!!!</h5>
+						<p>After each restart event listeners will increments on +1. Just look at console.</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col d-flex justify-content-center align-items-center">
+				<button class="btn btn-primary mt-2 bt-1">Restart</button>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col bg-info text-white mt-2">
+				<h4 class="text-center mt-2">Possible fix</h4>
+				<div class="bg-danger test2 mb-4 d-flex align-items-center justify-content-center">
+					<div>
+						<h5 class="text-center">Please, cleack on me!!!</h5>
+						<p>To prevent this behavior you shoud use: div.removeEventListener('click', listener, false);</p>
+						
+						
+					</div>
+				</div>
+			</div>
+		</div>	
+			<div class="row">
+			<div class="col d-flex justify-content-center align-items-center">
+				<button class="btn btn-primary mt-2 bt-2">Restart</button>
+			</div>
+		</div>
+	</div>
+	<script src="js/eventListenersIssue.js"></script>
+</body>
+</html>
